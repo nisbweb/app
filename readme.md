@@ -1,7 +1,7 @@
 # NISB Android App
 
 ## Release Signed APK
-[NISB](https://github.com/namithubot/NISBApp/raw/master/app/app-release.apk)  
+[NISB](https://github.com/nisbweb/app/raw/master/app/app-release.apk)  
 The App might still be buggy, if you face any issues then create an issue or contact NISB.
 
 ## Requirements

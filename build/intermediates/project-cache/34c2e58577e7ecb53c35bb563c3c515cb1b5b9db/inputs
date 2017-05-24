@@ -1,0 +1,6 @@
+COMMAND=PREDEX_LIBRARY_TO_DEX_ARCHIVE
+FILE_PATH=/home/mridul/AndroidStudioProjects/NISBApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar
+FILE_HASH=f858953cf646ee37d449c75a2d6e50eb57ac5a25
+DX_VERSION=1.13
+JUMBO_MODE=true
+OPTIMIZE=true

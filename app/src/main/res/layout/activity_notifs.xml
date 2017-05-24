@@ -8,24 +8,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:elevation="3dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@color/colorTitleBack">
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="#fff"
             android:gravity="center"
             android:padding="10dp"
             android:text="Notifications"
-            android:textColor="#000"
-            android:textSize="20dp"
+            android:textColor="@color/colorTitleText"
+            android:textSize="@dimen/TitleSize"
 
             android:textStyle="bold">
 
         </TextView>
         <TextView
             android:layout_width="wrap_content"
-            android:padding="10dp"
+            android:padding="9dp"
+            android:textSize="@dimen/TitleSize"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/clear"
             android:id="@+id/notifs_clear"/>
@@ -38,9 +39,11 @@
         android:padding="10dp">
 
         <ListView
+
             android:id="@+id/notifs_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:divider="#fff"/>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

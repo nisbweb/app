@@ -45,12 +45,41 @@
                 android:id="@+id/events_single_text"
                 android:textSize="15dp"
                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Share"
+                    android:layout_margin="3dp"
+                    android:id="@+id/events_single_share"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Remind"
+                    android:layout_margin="3dp"
+                    android:id="@+id/events_single_remind"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="Feedback"
+                    android:layout_margin="3dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register"
                 android:id="@+id/events_register"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:background="@color/colorButtonBack"
+                android:textColor="@color/colorButtonText"
+                android:layout_margin="10dp"/>
             
         </LinearLayout>
     </ScrollView>

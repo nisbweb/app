@@ -8,13 +8,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
+        android:background="@color/colorTitleBack"
         android:elevation="3dp"
         android:gravity="center"
         android:padding="10dp"
         android:text="Welcome to NISB"
-        android:textColor="#000"
-        android:textSize="20dp"
+        android:textColor="@color/colorTitleText"
+        android:textSize="@dimen/TitleSize"
         android:textStyle="bold" />
     <ScrollView
         android:orientation="vertical" android:layout_width="match_parent"

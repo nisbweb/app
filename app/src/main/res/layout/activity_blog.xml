@@ -6,30 +6,72 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
+        android:background="@color/colorTitleBack"
         android:gravity="center"
         android:padding="10dp"
         android:text="Latest Blog Posts"
-        android:textColor="#000"
-        android:textSize="20dp"
+        android:textColor="@color/colorTitleText"
+        android:textSize="@dimen/TitleSize"
         android:textStyle="bold"
         android:elevation="3dp"/>
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/blog_refresh">
 
-        <GridView
-            android:id="@+id/blog_grid"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="180dp"
-            android:horizontalSpacing="0dp"
-            android:numColumns="1"
-            android:verticalSpacing="15dp"
-            android:gravity="center"
-            android:stretchMode="columnWidth">
-        </GridView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+            android:orientation="vertical">
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/blog_refresh">
+            <GridView
+                android:id="@+id/blog_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="180dp"
+                android:horizontalSpacing="0dp"
+                android:numColumns="1"
+                android:verticalSpacing="15dp"
+                android:gravity="center"
+                android:stretchMode="columnWidth">
+            </GridView>
+            </android.support.v4.widget.SwipeRefreshLayout>
+            <LinearLayout
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:background="#fff">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorButtonBack"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_height="50dp"
+                    android:text="Filter"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorButtonBack"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_height="50dp"
+                    android:text="Search"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorButtonBack"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_height="50dp"
+                    android:text="Profile"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorButtonBack"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_height="50dp"
+                    android:text="Post"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
 
 </LinearLayout>

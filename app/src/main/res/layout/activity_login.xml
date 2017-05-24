@@ -13,11 +13,11 @@
         android:padding="10dp"
         android:text="Login to NISB"
         android:gravity="center"
-        android:background="#fff"
-        android:textSize="20dp"
+        android:background="@color/colorTitleBack"
+        android:textSize="@dimen/TitleSize"
         android:elevation="3dp"
         android:textStyle="bold"
-        android:textColor="#000" />
+        android:textColor="@color/colorTitleText" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

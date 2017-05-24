@@ -3,6 +3,8 @@
     package="in.nisb.nisbapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:allowBackup="true"
@@ -10,12 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".BackendVolley">
 
 
         <activity android:name=".MainActivity" />
         <activity android:name=".EventSingleActivity" />
-        <activity android:name=".BlogSingleActivity" />
+        <activity android:name=".BlogSingleActivity" android:windowSoftInputMode="stateHidden" />
         <activity android:name=".AboutActivity" />
         <activity
             android:name=".SplashActivity"
@@ -29,7 +32,7 @@
         <activity android:name=".ContactActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".AccountActivity" />
-
+        <activity android:name=".AnkuraActivity"></activity>
 
         <service
             android:name=".MessageService"
@@ -38,13 +41,14 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <service android:name=".TokenService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name=".AnkuraActivity"></activity>
+
     </application>
 
 </manifest>

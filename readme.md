@@ -2,6 +2,11 @@
 
 ## Release Signed APK
 [NISB](https://github.com/namithubot/NISBApp/raw/master/app/app-release.apk)  
+The App might still be buggy, if you face any issues then create an issue or contact NISB.
+
+## Requirements
+1. Android Studio 3.0 Canary 1
+2. Kitkak +
 
 ## Libraries used
 1. Volley

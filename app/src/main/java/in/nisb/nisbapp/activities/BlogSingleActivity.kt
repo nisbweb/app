@@ -4,12 +4,15 @@ import `in`.nisb.nisbapp.volley.APIController
 import `in`.nisb.nisbapp.volley.VolleyService
 import android.content.Intent
 import android.graphics.Color
+import android.opengl.Visibility
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import org.json.JSONArray
@@ -38,6 +41,11 @@ class BlogSingleActivity : AppCompatActivity() {
         btn_share.setOnClickListener({
             shareUrl( blogtitle + "\n" + url)
         })
+
+        if (DatabaseFunctions().isUserLogged(applicationContext)){
+            val comment_section = findViewById(R.id.blog_single_comment_section) as LinearLayout
+            comment_section.visibility = View.VISIBLE
+        }
 
         val btn_comment = findViewById(R.id.blog_single_comment_btn) as Button
         btn_comment.setOnClickListener({

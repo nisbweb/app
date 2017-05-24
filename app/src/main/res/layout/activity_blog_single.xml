@@ -42,6 +42,8 @@
                 android:layout_weight="1"
                 android:id="@+id/blog_single_web" />
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/blog_single_comment_section"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

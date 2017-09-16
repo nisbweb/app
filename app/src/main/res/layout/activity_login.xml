@@ -1,87 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.nisb.nisbapp.LoginActivity"
+    tools:context="app.nisb.nisbapp.LoginActivity"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Login to NISB"
-        android:gravity="center"
-        android:background="@color/colorTitleBack"
-        android:textSize="@dimen/TitleSize"
-        android:elevation="3dp"
-        android:textStyle="bold"
-        android:textColor="@color/colorTitleText" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:orientation="vertical">
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:src="@drawable/nisbs" />
+
         <LinearLayout
-            android:paddingTop="20dp"
+            android:padding="30dp"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nisblogo" />
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:layout_margin="10dp"
+                android:textAlignment="center"/>
 
             <EditText
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@android:color/white"
                 android:id="@+id/login_email"
+                android:hint="Email Address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
-                android:autoText="true"
-                android:background="#fff"
-                android:elevation="1dp"
-                android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:padding="10dp" />
+                />
 
             <EditText
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@android:color/white"
                 android:id="@+id/login_ieeeno"
+                android:hint="IEEE Number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
-                android:background="#fff"
-                android:elevation="1dp"
-                android:hint="IEEE Number"
-                android:inputType="number"
-                android:padding="10dp" />
+                android:inputType="numberPassword"
+                />
 
             <Button
-                android:id="@+id/login_signin"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_margin="30dp"
-                android:elevation="3dp"
-                android:text="Login" />
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/login_button"
+                android:background="@color/colorAccent"
+                android:textColor="@android:color/white"
+                android:text="Login"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="30dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="300dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff">
+                android:orientation="horizontal">
                 <Button
-                    android:id="@+id/login_guest"
-                    android:layout_width="match_parent"
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:height="50dp"
-                    android:elevation="2dp"
-                    android:text="Login as Guest" />
+                    android:padding="10dp"
+                    android:background="@color/colorAccent"
+                    android:textColor="@android:color/white"
+                    android:text="Join"/>
+                <Button
+
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:text="Login as Guest"/>
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

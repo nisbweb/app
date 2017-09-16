@@ -1,0 +1,91 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.nisb.nisbapp.fragments.EventFragment"
+    xmlns:fab="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:elevation="5dp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Events"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            />
+        <Button
+            style="?android:attr/actionButtonStyle"
+            android:layout_width="50dp"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:id="@+id/event_all"
+            />
+        <Button
+            style="?android:attr/actionButtonStyle"
+            android:layout_width="50dp"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="CS"
+            android:id="@+id/event_cs"
+            />
+        <Button
+            style="?android:attr/actionButtonStyle"
+            android:layout_width="50dp"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="WIE"
+            android:id="@+id/event_wie"
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:id="@+id/event_list"
+        android:background="#eee">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_add"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimaryDark"
+        fab:menu_colorRipple="@color/colorAccent">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/event_registered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check"
+            fab:fab_size="mini"
+            fab:fab_label="Registered"/>
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/event_attended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_attend"
+            fab:fab_size="mini"
+            fab:fab_label="Attended"/>
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</FrameLayout>

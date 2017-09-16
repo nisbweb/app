@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="in.nisb.nisbapp.EventSingleActivity">
+    tools:context="app.nisb.nisbapp.EventSingle"
+    android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:padding="10dp"
+        android:layout_height="45dp"
         android:gravity="center"
-        android:background="#fff"
-        android:textColor="#000"
-        android:elevation="3dp"
-        android:id="@+id/events_single_title"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="8dp"
-        android:id="@+id/events_single_extra"/>
+        android:elevation="5dp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Event Name"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:id="@+id/event_single_title"
+            />
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,55 +37,59 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/nisbcardback"
-                android:adjustViewBounds="true"
-                android:id="@+id/events_single_cover"/>
+                android:src="@drawable/nisb"
+                android:id="@+id/event_single_cover"
+                android:adjustViewBounds="true"/>
             <TextView
+                android:textColor="@android:color/black"
+                android:padding="10dp"
+                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
+                android:id="@+id/event_single_extra"/>
+            <TextView
                 android:padding="10dp"
-                android:id="@+id/events_single_text"
-                android:textSize="15dp"
-                />
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/event_single_desc"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp">
-
+                android:orientation="horizontal">
                 <Button
+                    android:layout_margin="8dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="Share"
-                    android:layout_margin="3dp"
-                    android:id="@+id/events_single_share"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/event_single_share"/>
                 <Button
+                    android:layout_margin="8dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="Remind"
-                    android:layout_margin="3dp"
-                    android:id="@+id/events_single_remind"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/event_single_remind"/>
                 <Button
+                    android:layout_margin="8dp"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="Feedback"
-                    android:layout_margin="3dp"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/event_single_feedback"/>
             </LinearLayout>
             <Button
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register"
-                android:id="@+id/events_register"
                 android:visibility="gone"
-                android:background="@color/colorButtonBack"
-                android:textColor="@color/colorButtonText"
-                android:layout_margin="10dp"/>
-            
+                android:id="@+id/event_single_register"/>
+
         </LinearLayout>
     </ScrollView>
-
 
 </LinearLayout>

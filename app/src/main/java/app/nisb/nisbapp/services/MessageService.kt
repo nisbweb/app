@@ -21,24 +21,21 @@ class MessageService : FirebaseMessagingService() {
         var intent = Intent(applicationContext, MainActivity::class.java)
         try {
 
-            jo.put("context", remoteMessage.data["context"])
+            val context :String? = remoteMessage.data["context"]
+            val ids : String? = remoteMessage.data["id"]
+            jo.put("context", context)
             jo.put("body", remoteMessage.data["body"])
-            jo.getString("context")
-//
-//            if (jo.getString("context").equals("blog")) {
-//                intent = Intent(applicationContext, BlogSingle::class.java)
-//                intent.putExtra("id", remoteMessage.data["blogid"])
-////                jo.put("id", remoteMessage.data["blogid"])
-//            }
-//            if (jo.getString("context").equals("event")) {
-//                intent = Intent(applicationContext, EventSingle::class.java)
-//                intent.putExtra("id", remoteMessage.data["id"])
-////                jo.put("id", remoteMessage.data["id"])
-//            }
+            jo.put("id", ids)
 
-
-
-            //Save the info to the DB
+            if (context.equals("event")){
+                val intent = Intent(applicationContext, EventSingle::class.java)
+                intent.putExtra("id", ids)
+            }
+            else if (context.equals("blog")){
+                val intent = Intent(applicationContext, BlogSingle::class.java)
+                intent.putExtra("id", ids)
+            }
+            DBFunc().addNotification(applicationContext, jo.toString())
 
         }
         catch (j: JSONException) {
@@ -46,7 +43,7 @@ class MessageService : FirebaseMessagingService() {
         }
 
 
-        DBFunc().addNotification(applicationContext, jo.toString())
+
 
         //Show the Notification
         ExtraFunctions.sendNotification( applicationContext,

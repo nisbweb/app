@@ -213,7 +213,8 @@ class DBFunc {
             val db = c.openOrCreateDatabase(database, Context.MODE_PRIVATE, null)
             db.execSQL("insert into notifs values('$data')")
             db.close()
-        } catch (e: Exception) {
+        }
+        catch (e: Exception) {
             System.out.println(e.toString())
         }
 
@@ -236,7 +237,8 @@ class DBFunc {
                 }
                 return vals
             }
-        } catch (e: Exception) {
+        }
+        catch (e: Exception) {
             e.printStackTrace()
         }
         return null

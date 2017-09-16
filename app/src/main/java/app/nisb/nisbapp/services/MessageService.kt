@@ -18,7 +18,6 @@ class MessageService : FirebaseMessagingService() {
       Log.d("GOT A MESSAGE","");
      // Toast.makeText(applicationContext,"GOT MSG",Toast.LENGTH_SHORT).show()
         val jo = JSONObject()
-        var intent = Intent(applicationContext, MainActivity::class.java)
         try {
 
             val context :String? = remoteMessage.data["context"]
@@ -26,16 +25,21 @@ class MessageService : FirebaseMessagingService() {
             jo.put("context", context)
             jo.put("body", remoteMessage.data["body"])
             jo.put("id", ids)
-
+            var intent:Intent = Intent(applicationContext, MainActivity::class.java)
             if (context.equals("event")){
-                val intent = Intent(applicationContext, EventSingle::class.java)
+                intent = Intent(applicationContext, EventSingle::class.java)
                 intent.putExtra("id", ids)
             }
             else if (context.equals("blog")){
-                val intent = Intent(applicationContext, BlogSingle::class.java)
+                intent = Intent(applicationContext, BlogSingle::class.java)
                 intent.putExtra("id", ids)
             }
             DBFunc().addNotification(applicationContext, jo.toString())
+
+
+            //Show the Notification
+            ExtraFunctions.sendNotification( applicationContext,
+                    "NISB", remoteMessage!!.data["body"], intent)
 
         }
         catch (j: JSONException) {
@@ -45,9 +49,6 @@ class MessageService : FirebaseMessagingService() {
 
 
 
-        //Show the Notification
-        ExtraFunctions.sendNotification( applicationContext,
-                "NISB", remoteMessage!!.data["body"], intent)
     }
 
 }

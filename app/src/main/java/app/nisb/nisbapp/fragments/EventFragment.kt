@@ -86,10 +86,16 @@ class EventFragment : Fragment() {
                 for (i in 0..ja.length() - 1) {
                     b[i] = ja.getJSONObject(i)
                 }
-                event_list.adapter = EventAdapter(context,b)
+                if (ja.length()==0)
+                    event_list.adapter=null
+                else
+                    event_list.adapter = EventAdapter(context,b)
 
             } catch (j: JSONException) {
                 toaster("Error ")
+            }
+            catch (n: NullPointerException){
+
             }
         })
     }

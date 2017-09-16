@@ -100,8 +100,6 @@ class BlogFragment : Fragment() {
         class Item(itemView: View) : RecyclerView.ViewHolder(itemView) {
             fun bindData(_list: JSONObject?,c : Context) {
 
-                System.out.println("GOT HERE ")
-
                 itemView.blog_adapter_name.text = _list!!.getString("title")
                 itemView.blog_adapter_extra.text = _list!!.getString("date").substring(0,10)
                 itemView.blog_adapter_id.text = _list!!.getString("id")

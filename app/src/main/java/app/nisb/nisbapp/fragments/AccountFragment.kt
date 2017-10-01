@@ -2,6 +2,7 @@ package app.nisb.nisbapp.fragments
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
@@ -34,6 +35,18 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        if (DBFunc().isGuestLogged(context)){
+            account_name.visibility = View.GONE
+            account_ieeeno.visibility = View.GONE
+            account_email.visibility = View.GONE
+            account_mobile.visibility = View.GONE
+            account_branch.visibility = View.GONE
+            account_sem.visibility = View.GONE
+            account_usn.visibility = View.GONE
+            account_cs.visibility = View.GONE
+            account_qr.visibility = View.GONE
+        }
 
 
         if (DBFunc().isUserLogged(context)){

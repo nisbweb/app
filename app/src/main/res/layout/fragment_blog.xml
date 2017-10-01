@@ -24,6 +24,7 @@
             />
 
         <EditText
+            android:visibility="gone"
             android:id="@+id/blog_search"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
@@ -45,6 +46,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <com.github.clans.fab.FloatingActionMenu
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"

@@ -63,6 +63,8 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Share"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="#fff"
                     android:id="@+id/event_single_share"/>
                 <Button
                     android:layout_margin="8dp"
@@ -70,6 +72,8 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Remind"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="#fff"
                     android:id="@+id/event_single_remind"/>
                 <Button
                     android:layout_margin="8dp"
@@ -77,6 +81,8 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Feedback"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="#fff"
                     android:id="@+id/event_single_feedback"/>
             </LinearLayout>
             <Button

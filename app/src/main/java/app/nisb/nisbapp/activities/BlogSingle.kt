@@ -1,5 +1,6 @@
 package app.nisb.nisbapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebSettings
@@ -44,6 +45,14 @@ class BlogSingle : AppCompatActivity() {
 
                 val notes = j.getString("note_count")
                 val url = j.getString("short_url")
+
+                blog_single_share.setOnClickListener({
+                    val sendIntent = Intent()
+                    sendIntent.action = Intent.ACTION_SEND
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, title + "\n" + url)
+                    sendIntent.type = "text/plain"
+                    startActivity(Intent.createChooser(sendIntent, "Share NISB Blog Post"))
+                })
 
                 blog_single_title.text = title
                 blog_single_wv.settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN

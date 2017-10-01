@@ -1,6 +1,7 @@
 package app.nisb.nisbapp
 
 import android.content.Intent
+import android.net.Uri
 import kotlinx.android.synthetic.main.activity_login.*;
 import app.nisb.nisbapp.volley.*
 import android.support.v7.app.AppCompatActivity
@@ -106,6 +107,20 @@ class LoginActivity : AppCompatActivity() {
             }) // volley ends here
 
         }) //end onclick listener
+
+        login_join.setOnClickListener({
+            val uri = Uri.parse("http://join.nisb.in/form")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        })
+
+        login_guest.setOnClickListener({
+            DBFunc().doGuestLogin(applicationContext)
+            ExtraFunctions.userTokenUpdate(applicationContext)
+
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        })
 
 
     }

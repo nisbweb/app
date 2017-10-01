@@ -26,10 +26,29 @@
             />
 
     </LinearLayout>
-    <WebView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/blog_single_wv">
-    </WebView>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="WebViewLayout">
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/blog_single_wv">
+            </WebView>
+
+            <Button
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:id="@+id/blog_single_share"/>
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

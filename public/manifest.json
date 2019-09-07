@@ -1,0 +1,14 @@
+{
+    "name": "NISB App",
+    "short_name": "nisb",
+    "icons": [
+        {
+            "src": "http://cdn.nisb.in/img/logos/nisb.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/app/",
+    "display": "fullscreen",
+    "orientation": "portrait"
+}

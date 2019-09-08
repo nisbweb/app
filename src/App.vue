@@ -1,74 +1,64 @@
 <template>
   <div id="app">
-    <home-view :show="'HOME'==currentView"  @viewEvent="showEvent"/>
-    <events-view :show="'EVENTS'==currentView" @viewEvent="showEvent"/>
-    <announcements-view :show="'ANNOUNCEMENTS'==currentView"/>
-    <profile-view :show="'PROFILE'==currentView"/>
-
-    <event-view :show="'EVENT'==currentView" :event_id="current_event_id" :source="show_event_source" @back="changeView"></event-view>
-
-    <nav-bar
-      @view-changed="changeView"/>
+    <router-view />
+    <section class="fixed-bottom">
+      <router-link to="/home">
+        <b-button type="is-light" class="one-four">
+          <i class="fas fa-home"></i>
+        </b-button>
+      </router-link>
+      <router-link to="/events">
+        <b-button type="is-light" class="one-four">
+          <i class="fas fa-calendar-check"></i>
+        </b-button>
+      </router-link>
+      <router-link to="/notices">
+        <b-button type="is-light" class="one-four">
+          <i class="fas fa-bell"></i>
+        </b-button>
+      </router-link>
+      <router-link to="/profile">
+        <b-button type="is-light" class="one-four">
+          <i class="fas fa-user"></i>
+        </b-button>
+      </router-link>
+    </section>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
-
-Vue.use(Buefy)
-
-import HomeView from './views/HomeView.vue'
-import EventsView from './views/EventsView.vue'
-import AnnouncementsView from './views/AnnouncementsView.vue'
-import ProfileView from './views/ProfileView.vue'
-
-import EventView from './views/EventView.vue'
-
-import NavBar from './components/NavBar.vue'
 
 export default {
-  name: 'app',
-  data(){
-    return{
-      currentView: "HOME",
-      current_event_id:"",
-      show_event_source:""
-    }
-  },
-  components: {
-    HomeView,EventsView,AnnouncementsView,ProfileView,
-    NavBar, EventView
-  },
-  methods:{
-    changeView(v){
-      if (v==""){
-        v="HOME"
-      }
-        this.currentView = v
-    },
-    showEvent(id,source){
-      this.current_event_id = id
-      this.show_event_source = source
-      this.changeView("EVENT")
-    }
-  }
-  
-}
-</script>
+  name: "app",
+};
+</script>>
 
 <style>
-
-.container{
+.container {
   padding: 60px 20px;
 }
 
-.title{
+.title {
   padding: 20px 10px;
 }
 
-.hidden{
-  display: none;
+.one-four{
+    width:25%;
+    border: 0;
+    font-size: 1.3em;
+    border-radius: 0;
+}
+.one-four:hover{
+    border: 0;
+}
+.one-four:active{
+    border: 0;
+}
+.fixed-bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding:0;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
-  <div :class="{hidden:!show, container:true}">
+  <div class="container">
     <h1 class="title">EVENTS</h1>
-
     <img v-for="event in events" :key="event.id" :src="event.image" :alt="event.title" @click="$emit('viewEvent',event.id,'EVENTS')">
   </div>
 </template>
@@ -11,9 +10,6 @@ import axios from 'axios';
 
 export default {
   name: 'EventsView',
-  props:{
-    show:Boolean
-  },
   data(){
     return{
       events:[]

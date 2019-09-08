@@ -1,5 +1,5 @@
 <template>
-  <div :class="{hidden:!show, container:true}">
+  <div class="container">
     <h1 class="title">PROFILE</h1>
   </div>
 </template>

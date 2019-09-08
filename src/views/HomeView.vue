@@ -1,21 +1,16 @@
 <template>
-  <div :class="{hidden:!show, container:true}">
+  <div class="container">
     <h1 class="title">NISB</h1>
 
     <h2 class="subtitle">Upcoming Events</h2>
 
     <div class="horizontal-scroll">
-      <img
+      <router-link
+        :to="{name: 'event', params: { id: event.id }}"
         v-for="event in events"
-        :key="event.id"
-        :src="event.image"
-        :alt="event.title"
-        @click="$emit('viewEvent',event.id,'HOME')"
-        class="fix-height"
-      />
-      <!-- <img src="https://www.dropbox.com/s/bb4m4hojb8vhhol/R%20Pi%20%281%29.png?raw=1" class="fix-height">
-      <img src="https://www.dropbox.com/s/n6xz8vtqiivlzbz/SelfHosted%20%281%29.png?raw=1" class="fix-height">
-      <img src="https://www.dropbox.com/s/bb4m4hojb8vhhol/R%20Pi%20%281%29.png?raw=1" class="fix-height">-->
+        :key="event.id">
+        <img :src="event.image" :alt="event.title" class="fix-height" />
+      </router-link>
     </div>
     <br />
     <br />
@@ -60,6 +55,17 @@ export default {
         .get("https://nisb-events.herokuapp.com/events?after=" + date_string)
         .then(response => {
           this.events = response.data;
+          if (this.events.length == 0) {
+            axios
+              .get("https://nisb-events.herokuapp.com/events")
+              .then(response => {
+                this.events = response.data;
+                this.events.sort((a, b) =>
+                  a.timestamp > b.timestamp ? 1 : -1
+                );
+                this.events = this.events.slice(0, 10);
+              });
+          }
         });
     },
     loadNotices() {
@@ -80,12 +86,23 @@ export default {
         .get("https://nisb-events.herokuapp.com/notices?after=" + date_string)
         .then(response => {
           this.notices = response.data;
+          if (this.notices.length == 0) {
+            axios
+              .get("https://nisb-events.herokuapp.com/notices")
+              .then(response => {
+                this.notices = response.data;
+                this.notices.sort((a, b) =>
+                  a.timestamp > b.timestamp ? 1 : -1
+                );
+                this.notices = this.notices.slice(0, 10);
+              });
+          }
         });
     }
   },
   mounted() {
-    this.loadEvents()
-    this.loadNotices()
+    this.loadEvents();
+    this.loadNotices();
   }
 };
 </script>

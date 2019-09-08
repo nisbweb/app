@@ -1,9 +1,18 @@
 <template>
     <section class="fixed-bottom box">
-        <b-button @click="homeClick" type="is-light" class="one-four"><i class="fas fa-home"></i></b-button>
-        <b-button @click="eventsClick" type="is-light" class="one-four"><i class="fas fa-calendar-check"></i></b-button>
-        <b-button @click="announcementsClick" type="is-light" class="one-four"><i class="fas fa-bell"></i></b-button>
-        <b-button @click="profileClick" type="is-light" class="one-four"><i class="fas fa-user"></i></b-button>
+        <router-link to="/home">
+            <b-button type="is-light" class="one-four"><i class="fas fa-home"></i></b-button>
+        </router-link>
+        <router-link to="/events">
+            <b-button type="is-light" class="one-four"><i class="fas fa-calendar-check"></i></b-button>
+        </router-link>
+        <router-link to="/notices">
+            <b-button type="is-light" class="one-four"><i class="fas fa-bell"></i></b-button>
+        </router-link>
+        <router-link to="/profile">
+            <b-button type="is-light" class="one-four"><i class="fas fa-user"></i></b-button>
+        </router-link>
+        
 
     </section>
 </template>

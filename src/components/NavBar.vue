@@ -1,39 +1,31 @@
 <template>
-    <section class="fixed-bottom box">
-        <router-link to="/home">
-            <b-button type="is-light" class="one-four"><i class="fas fa-home"></i></b-button>
-        </router-link>
-        <router-link to="/events">
-            <b-button type="is-light" class="one-four"><i class="fas fa-calendar-check"></i></b-button>
-        </router-link>
-        <router-link to="/notices">
-            <b-button type="is-light" class="one-four"><i class="fas fa-bell"></i></b-button>
-        </router-link>
-        <router-link to="/profile">
-            <b-button type="is-light" class="one-four"><i class="fas fa-user"></i></b-button>
-        </router-link>
-        
-
+    <section class="fixed-bottom">
+      <router-link to="/home">
+        <b-button type="is-light navbar-button" class="one-four">
+          <i class="fas fa-home"></i>
+        </b-button>
+      </router-link>
+      <router-link to="/events">
+        <b-button type="is-light navbar-button" class="one-four">
+          <i class="fas fa-calendar-check"></i>
+        </b-button>
+      </router-link>
+      <router-link to="/notices">
+        <b-button type="is-light navbar-button" class="one-four">
+          <i class="fas fa-bell"></i>
+        </b-button>
+      </router-link>
+      <router-link to="/profile">
+        <b-button type="is-light navbar-button" class="one-four">
+          <i class="fas fa-user"></i>
+        </b-button>
+      </router-link>
     </section>
 </template>
 
 <script>
 export default {
-    name: "NavBar",
-    methods:{
-        homeClick(){
-            this.$emit("view-changed","HOME");
-        },
-        eventsClick(){
-            this.$emit("view-changed","EVENTS");
-        },
-        announcementsClick(){
-            this.$emit("view-changed","ANNOUNCEMENTS");
-        },
-        profileClick(){
-            this.$emit("view-changed","PROFILE");
-        }        
-    }
+    name: "NavBar"
 }
 </script>
 

@@ -7,6 +7,7 @@
     <br />
     <img :src="event.image" alt />
     <p>{{event.desc}}</p>
+    <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="false"></b-loading>
   </div>
 </template>
 
@@ -17,8 +18,9 @@ export default {
   name: "EventView",
   data() {
     return {
-      id: "",
-      event: { title: "", image: "", desc: "" }
+      id: "", 
+      event: { title: "", image: "", desc: "" },
+      isLoading: false
     };
   },
   created() {
@@ -27,10 +29,12 @@ export default {
   },
   methods: {
     loadEvent(id) {
+      this.isLoading = true;
       axios
         .get("https://nisb-events.herokuapp.com/event?event_id=" + id)
         .then(response => {
           this.event = response.data;
+          this.isLoading = false;
         });
     }
   }

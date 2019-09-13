@@ -7,8 +7,9 @@
     <div class="horizontal-scroll">
       <router-link
         :to="{name: 'event', params: { id: event.id }}"
-        v-for="event in events"
-        :key="event.id">
+        v-for="event in events.slice().reverse()"
+        :key="event.id"
+      >
         <img :src="event.image" :alt="event.title" class="fix-height" />
       </router-link>
     </div>
@@ -17,8 +18,12 @@
 
     <h2 class="subtitle">Latest Announcements</h2>
     <div class="card-list">
-      <div class="box" v-for="notice in notices" :key="notice.id">{{notice.message}}</div>
+      <div class="box" v-for="notice in notices.slice().reverse()" :key="notice.id">
+        <div class="is-dark">{{notice.topic}}</div>
+        {{notice.message}}
+      </div>
     </div>
+    <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="false"></b-loading>
   </div>
 </template>
 
@@ -27,13 +32,11 @@ import axios from "axios";
 
 export default {
   name: "HomeView",
-  props: {
-    show: Boolean
-  },
   data() {
     return {
       events: [],
-      notices: []
+      notices: [],
+      isLoading: false
     };
   },
   methods: {
@@ -51,19 +54,20 @@ export default {
         d.getMinutes() +
         ":" +
         d.getSeconds();
+      this.isLoading = true;
       axios
         .get("https://nisb-events.herokuapp.com/events?after=" + date_string)
         .then(response => {
           this.events = response.data;
+          this.isLoading = false;
           if (this.events.length == 0) {
+            this.isLoading = true;
             axios
               .get("https://nisb-events.herokuapp.com/events")
               .then(response => {
                 this.events = response.data;
-                this.events.sort((a, b) =>
-                  a.timestamp > b.timestamp ? 1 : -1
-                );
                 this.events = this.events.slice(0, 10);
+                this.isLoading = false;
               });
           }
         });
@@ -82,19 +86,20 @@ export default {
         d.getMinutes() +
         ":" +
         d.getSeconds();
+      this.isLoading = true;
       axios
         .get("https://nisb-events.herokuapp.com/notices?after=" + date_string)
         .then(response => {
           this.notices = response.data;
+          this.isLoading = false;
           if (this.notices.length == 0) {
+            this.isLoading = true;
             axios
               .get("https://nisb-events.herokuapp.com/notices")
               .then(response => {
                 this.notices = response.data;
-                this.notices.sort((a, b) =>
-                  a.timestamp > b.timestamp ? 1 : -1
-                );
                 this.notices = this.notices.slice(0, 10);
+                this.isLoading = false;
               });
           }
         });

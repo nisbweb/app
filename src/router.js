@@ -1,16 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HomeView from './views/HomeView.vue'
-import EventsView from './views/EventsView.vue'
-import EventView from './views/EventView.vue'
-import NoticesView from './views/NoticesView.vue'
-import ProfileView from './views/ProfileView.vue'
+import HomeView from './views/main/HomeView.vue'
+import EventsView from './views/main/EventsView.vue'
+import EventView from './views/main/EventView.vue'
+import NoticesView from './views/main/NoticesView.vue'
+import ProfileView from './views/main/ProfileView.vue'
+
+import LoginView from './views/auth/LoginView.vue'
+import SignupView from './views/auth/SignupView.vue'
+import DefaultView from './views/auth/DefaultView.vue'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/default',
+      name: 'default',
+      component: DefaultView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignupView
+    },
     {
       path: '/home',
       name: 'home',

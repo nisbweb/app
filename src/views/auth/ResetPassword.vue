@@ -1,5 +1,5 @@
 <template>
-  <div class="login container">
+  <div class="resetpassword container">
 
     <h1>Reset Password</h1>
 
@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from "axios"
 
 export default {
   name: "ResetPasswordView",

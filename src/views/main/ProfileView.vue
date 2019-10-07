@@ -17,17 +17,31 @@
         @click="openSettings()"
         icon="sliders"
       ></a-button>
+       <a-button
+        type="primary"
+        style="font-size:1.5em;"
+        size="large"
+        @click="performLogout"
+        icon="logout"
+      >Logout</a-button>
     </a-button-group>
     <br><br>
 
     <a-card hoverable :loading="isLoading">
-      <template class="ant-card-actions" slot="actions">
-        <a-icon type="setting" />
-        <a-icon type="edit" />
-        <a-icon type="logout" @click="performLogout"/>
-      </template>
       <a-card-meta v-if="isGuest()" title="Guest User"></a-card-meta>
-      <a-card-meta :title="member.name" :description="member.email" v-else>
+      <a-card-meta :title="member.name" v-else>
+        <template slot="description">
+          Email: {{member.email}} <br><br>
+          Mobile: {{member.mobile}} <br><br>
+          IEEE Membership :
+          <a-switch defaultChecked v-model="member.membership.isIEEE" disabled/>
+          <br />
+          <br />CS Membership :
+          <a-switch defaultChecked v-model="member.membership.isCS" disabled />
+          <br />
+          <br />
+          <a-tag color="#2db7f5" v-if="member.membership.active">Membership Active</a-tag>
+        </template>
       </a-card-meta>
     </a-card>
 
@@ -38,8 +52,9 @@
       :closable="false"
       @close="closeSettings()"
       :visible="settingsVisible">
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <p>Edit Profile</p>
+      <p>Logout from everywhere</p>
+      <p>Delete Account</p>
     </a-drawer>
   </div>
 </template>
@@ -53,7 +68,7 @@ export default {
   data() {
     return {
       isLoading: false,
-      member: {},
+      member: {name:"", email:"", mobile:"", membership:{active:false, isIEEE:false, isCS:false}},
       settingsVisible: false
     };
   },

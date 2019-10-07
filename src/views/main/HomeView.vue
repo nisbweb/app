@@ -36,7 +36,7 @@
     :dataSource="notices.slice().reverse()"
     :loading="isLoading"
   >
-    <a-list-item slot="renderItem" slot-scope="item, index">
+    <a-list-item slot="renderItem" slot-scope="item,">
       <a-list-item-meta
         :description="item.message">
         <a-tag slot="avatar" color="blue">{{item.topic}}</a-tag>

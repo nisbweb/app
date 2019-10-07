@@ -17,7 +17,7 @@
     <br />
 
     <a-list bordered :dataSource="notices.slice().reverse()" :loading="isLoading">
-      <a-list-item slot="renderItem" slot-scope="item, index" v-if="checkTopic(item.topic)">
+      <a-list-item slot="renderItem" slot-scope="item," v-if="checkTopic(item.topic)">
         <a-list-item-meta>
           <a-tag slot="avatar" color="blue">{{item.topic}}</a-tag>
           <template slot="title">{{item.message}}</template>
@@ -40,9 +40,6 @@
         <a-select-option value="blog">Blog</a-select-option>
         <a-select-option value="mridul.kepler@gmail.com">Me</a-select-option>
       </a-select>
-
-      <p>Some contents...</p>
-      <p>Some contents...</p>
     </a-drawer>
   </div>
 </template>

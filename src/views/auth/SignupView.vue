@@ -139,7 +139,6 @@ export default {
     checkEmail() {
       // step 1
       let vapp = this;
-      var skip = false;
       vapp.isLoading = true;
 
       axios
@@ -149,7 +148,6 @@ export default {
           vapp.isLoading = false;
           if (r.exists === true) {
             vapp.$message.error("Your account already exists.");
-            skip = true;
           } else {
             // continue
             vapp.isLoading = true;

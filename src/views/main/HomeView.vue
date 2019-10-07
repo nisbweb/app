@@ -4,26 +4,47 @@
 
     <h2 class="subtitle">Upcoming Events</h2>
 
+    
     <div class="horizontal-scroll">
-      <router-link
-        :to="{name: 'event', params: { id: event.id }}"
-        v-for="event in events.slice().reverse()"
-        :key="event.id"
-      >
-        <img :src="event.image" :alt="event.title" class="fix-height" />
-      </router-link>
+      <div :style="{ width: events.length*240 + 'px' }">
+        <div style="width:240px; float:left;" v-for="event in events.slice().reverse()" :key="event.id">
+          <router-link
+            :to="{name: 'event', params: { id: event.id }}"
+            style="float:left; position:relative; display:block;"
+          >
+            <a-card hoverable style="width: 240px; float:left;">
+              <img alt="example" :src="event.image" slot="cover" />
+              <a-card-meta :title="event.title">
+                <template slot="description">{{event.timestamp.trim(0,10)}}</template>
+              </a-card-meta>
+            </a-card>
+            <!-- <img  :alt="event.title" class="fix-height" /> -->
+          </router-link>
+        </div>
+      </div>
     </div>
+    
+
+
     <br />
     <br />
 
     <h2 class="subtitle">Latest Announcements</h2>
-    <div class="card-list">
-      <div class="box" v-for="notice in notices.slice().reverse()" :key="notice.id">
-        <div class="is-dark">{{notice.topic}}</div>
-        {{notice.message}}
-      </div>
-    </div>
-    <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="false"></b-loading>
+
+    <a-list
+    bordered
+    :dataSource="notices.slice().reverse()"
+    :loading="isLoading"
+  >
+    <a-list-item slot="renderItem" slot-scope="item, index">
+      <a-list-item-meta
+        :description="item.message">
+        <a-tag slot="avatar" color="blue">{{item.topic}}</a-tag>
+
+      </a-list-item-meta>
+    </a-list-item>
+  </a-list>
+
   </div>
 </template>
 
@@ -116,7 +137,6 @@ export default {
 .horizontal-scroll {
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 150px;
   white-space: nowrap;
 }
 

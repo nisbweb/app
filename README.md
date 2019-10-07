@@ -1,4 +1,4 @@
-# nisbapp
+# nisb-app
 
 ## Project setup
 ```

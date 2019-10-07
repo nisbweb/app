@@ -1,95 +1,73 @@
 <template>
   <div id="app" @contextmenu="preventContextMenu($event)">
-    <router-view />
-    <nav-bar v-if="isLoggedIn()"></nav-bar>
+    <a-layout>
+      <a-layout-content style="background:#fff;">
+        <router-view />
+      </a-layout-content>
+      <a-layout-footer v-if="session.isLoggedIn()" class="bottomFixed" style="padding:0;">
+        <a-row>
+          <a-col :span="6">
+            <router-link to="/">
+              <a-button icon="home" block  type="primary" size="large" class="navBTN"/>
+            </router-link>
+          </a-col>
+          <a-col :span="6">
+            <router-link to="/events">
+              <a-button icon="calendar" block  type="primary" size="large" class="navBTN"/>
+            </router-link>
+          </a-col>
+          <a-col :span="6">
+            <router-link to="/notices">
+              <a-button icon="bell" block type="primary" size="large" class="navBTN"/>
+            </router-link>
+          </a-col>
+          <a-col :span="6">
+            <router-link to="/profile">
+              <a-button icon="user" block  type="primary" size="large" class="navBTN"/>
+            </router-link>
+          </a-col>
+        </a-row>
+      </a-layout-footer>
+    </a-layout>
   </div>
 </template>
 
+
 <script>
-import NavBar from "./components/NavBar.vue"
+import session from "./session"
 export default {
-  components:{
-    NavBar
-  },
   name: "app",
   methods:{
-    isLoggedIn(){
-      
-      if (localStorage.getItem("guest") !== null || localStorage.getItem("email")!== null){
-        return true
-      }
-      return false
-    },
     preventContextMenu(e){
       e.preventDefault()
     }
   },
   mounted() {
-    if (localStorage.getItem("guest") === null) {
-      if (localStorage.getItem("email") === null) {
-        // router.replace("default");
-        this.$router.replace("default")
-      } else {// if logged in as user
-        this.$router.replace("home")
-      }
-    } else {// is logged in as guest
-      this.$router.replace("home")
+    if (session.isLoggedIn() == false){
+      this.$router.replace("default")
     }
   }
-};
-</script>>
+}
+</script>
 
 <style>
-.container {
-  padding: 60px 20px;
-}
-
-.title {
-  padding: 20px 10px;
-}
-
-.one-four {
-  width: 25%;
-  border: 0;
-  font-size: 1.3em;
-  border-radius: 0;
-}
-.one-four:hover {
-  border: 0;
-}
-.one-four:active {
-  border: 0;
-}
-.fixed-bottom {
+.bottomFixed {
   position: fixed;
   bottom: 0;
-  width: 100%;
   left: 0;
-  padding: 0;
-}
-.width-80{
-    width :80%;
-}
-.width-100{
   width:100%;
+  height: 60px;
 }
-
-/* 
-//Dark Mode
-html,body{height:100%; display: block; overflow: scroll;}
-
-html, body,.box{
-  color:white!important;
-  background:black;
+.navBTN{
+  height:60px!important;
+  border-radius: 0!important;
 }
-.box{
-  background: #222!important;
-} 
-.navbar-button{
-  background: #333!important;
+.container{
+  padding:20px;
+  margin-top:30px;
+  margin-bottom:  60px;
 }
-a, .fas{
-  color:white!important;
+h1{
+  margin-top:30px;
 }
-.title, .subtitle{color:white!important;} */
 </style>

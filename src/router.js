@@ -32,7 +32,7 @@ export default new Router({
       component: SignupView
     },
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: HomeView
     },

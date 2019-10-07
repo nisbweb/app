@@ -1,28 +1,29 @@
 <template>
-  <div class="default is-centered columns">
+  <div class="default container is-centered columns">
     <div class="column has-text-centered">
         <br><br><br><br><br><br><br><br><br>
       <router-link to="/login">
-        <b-button class="width-80">Login</b-button>
+        <a-button size="large" block type="primary">Login</a-button>
       </router-link>
       <br />
       <br />
       <router-link to="/signup">
-        <b-button class="width-80">Signup</b-button>
+        <a-button size="large" block type="dashed">Signup</a-button>
       </router-link>
       <br />
       <br />
 
-      <b-button class="width-80" @click="guestLogin">Guest</b-button>
+      <a-button size="large" block @click="guestLogin" type="default">Guest</a-button>
     </div>
   </div>
 </template>
 <script>
+import session from "./../../session"
 export default {
   name: "DefaultView",
   methods: {
     guestLogin() {
-      localStorage.setItem("guest", "true");
+      session.createGuestSession()
       this.$router.push("/home");
     }
   }
@@ -30,5 +31,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

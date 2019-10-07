@@ -57,7 +57,7 @@
       </a-input>
       <br />
       <br />
-      <a-input v-model="email" size="large">
+      <a-input v-model="email" size="large" disabled>
         <a-icon slot="prefix" type="user" />
       </a-input>
       <br />

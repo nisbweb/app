@@ -76,8 +76,8 @@ export default {
     shareEvent(event){
       if (navigator.canShare) {
         navigator.share({
-          title: this.event.title,
-          text: this.event.desc,
+          title: event.title,
+          text: event.desc,
         })
         .then(() => console.log('Share was successful.'))
         .catch((error) => console.log('Sharing failed', error));

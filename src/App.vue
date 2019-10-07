@@ -4,7 +4,7 @@
       <a-layout-content style="background:#fff;">
         <router-view />
       </a-layout-content>
-      <a-layout-footer v-if="session.isLoggedIn()" class="bottomFixed" style="padding:0;">
+      <a-layout-footer v-if="isLoggedIn()" class="bottomFixed" style="padding:0;">
         <a-row>
           <a-col :span="6">
             <router-link to="/">
@@ -40,6 +40,9 @@ export default {
   methods:{
     preventContextMenu(e){
       e.preventDefault()
+    },
+    isLoggedIn(){
+      return session.isLoggedIn()
     }
   },
   mounted() {

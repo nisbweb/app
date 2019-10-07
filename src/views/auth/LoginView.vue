@@ -17,6 +17,10 @@
     <br><br>
 
     <a-button type="primary" @click="performLogin" :loading="isLoading" block size="large">Login</a-button>
+    <br><br>
+    <router-link to="/resetpassword">
+      <a-button type="link" block size="large">Reset Password</a-button>
+    </router-link>
   </div>
 </template>
 <script>
@@ -45,7 +49,7 @@ export default {
           let r = Response.data;
           if (r.status === "ok") {
             session.createSession(this.email, r.auth)
-            this.$router.replace("/home");
+            this.$router.replace("/");
           } else {
             this.$buefy.toast.open({
               message: "email or password is incorrect!",

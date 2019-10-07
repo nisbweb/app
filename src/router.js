@@ -10,6 +10,7 @@ import ProfileView from './views/main/ProfileView.vue'
 import LoginView from './views/auth/LoginView.vue'
 import SignupView from './views/auth/SignupView.vue'
 import DefaultView from './views/auth/DefaultView.vue'
+import ResetPasswordView from './views/auth/ResetPassword.vue'
 
 
 Vue.use(Router)
@@ -30,6 +31,11 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       component: SignupView
+    },
+    {
+      path: '/resetpassword',
+      name: 'resetpassword',
+      component: ResetPasswordView
     },
     {
       path: '/',

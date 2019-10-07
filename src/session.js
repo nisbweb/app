@@ -1,4 +1,6 @@
 export default {
+    name: "session",
+
     isLoggedIn() {
         return (localStorage.getItem("guest") !== null || localStorage.getItem("email") !== null)
     },
@@ -14,22 +16,23 @@ export default {
         }
         return false
     },
-    createSession(email, auth){
+    createSession(email, auth) {
         localStorage.setItem("email", email);
         localStorage.setItem("token", auth);
     },
-    createGuestSession(){
+    createGuestSession() {
         localStorage.setItem("guest", "true")
     },
-    destroySession(){
+    destroySession() {
         localStorage.removeItem("guest");
         localStorage.removeItem("email");
         localStorage.removeItem("token");
     },
-    getToken(){
+    getToken() {
         return localStorage.getItem("token")
     },
-    getEmail(){
+    getEmail() {
         return localStorage.getItem("email")
     }
+
 }

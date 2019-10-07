@@ -26,7 +26,7 @@
         <a-icon type="edit" />
         <a-icon type="logout" @click="performLogout"/>
       </template>
-      <a-card-meta v-if="session.isGuest()" title="Guest User"></a-card-meta>
+      <a-card-meta v-if="isGuest()" title="Guest User"></a-card-meta>
       <a-card-meta :title="member.name" :description="member.email" v-else>
       </a-card-meta>
     </a-card>
@@ -74,9 +74,12 @@ export default {
         ),
       });
     },
+    isGuest(){
+      return session.isGuest()
+    },
     loadMember() {
-      var m = localStorage.getItem("email");
-      var t = localStorage.getItem("token");
+      var m = session.getEmail()
+      var t = session.getToken()
       this.isLoading = true;
       axios
         .get(
@@ -101,7 +104,7 @@ export default {
     }
   },
   mounted() {
-    if (session.isGuest === false){
+    if (session.isGuest() === false){
       this.loadMember()
     }
   }

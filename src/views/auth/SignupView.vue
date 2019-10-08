@@ -1,6 +1,7 @@
 <template>
   <div class="signup container">
     <h1>Signup</h1>
+    <br><br>
 
     <a-card v-if="(step==='enterEmail')">
       <p>Please enter your email to begin.</p>
@@ -189,6 +190,11 @@ export default {
       // step 2 b
       let vapp = this;
       vapp.isLoading = true;
+
+      if (vapp.isIEEE===false){
+        vapp.isCS=false
+      }
+
       axios
         .post("https://nisb-members.herokuapp.com/member?auth=all", {
           name: vapp.name,

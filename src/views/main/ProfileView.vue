@@ -7,6 +7,7 @@
         type="primary" 
         style="font-size:1.5em;" 
         size="large"
+        v-if="(false==isGuest())"
         @click="showQR()">
           <a-icon type="qrcode" />
       </a-button>
@@ -14,6 +15,7 @@
         type="primary"
         style="font-size:1.5em;"
         size="large"
+        v-if="(false==isGuest())"
         @click="openSettings()"
         icon="sliders"
       ></a-button>
@@ -108,14 +110,23 @@ export default {
     performLogout() {
       let vapp = this;
       var t = session.getToken()
-      session.destroySession()
       this.isLoading=true
-      axios
-        .delete("https://nisb-auth.herokuapp.com/auth?auth=" + t)
-        .then(function() {
-          vapp.isLoading = false
-          vapp.$router.replace("default");
+
+      if (session.isGuest()){
+            session.destroySession()
+            vapp.isLoading = false
+            vapp.$router.replace("default");
+      }else{
+        axios
+          .delete("https://nisb-auth.herokuapp.com/auth?auth=" + t)
+          .then(function() {
+            session.destroySession()
+            vapp.isLoading = false
+            vapp.$router.replace("default");
         });
+      }
+
+      
     }
   },
   mounted() {

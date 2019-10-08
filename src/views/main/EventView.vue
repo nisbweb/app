@@ -2,23 +2,25 @@
   <div class="event container">
     <h1>Event</h1>
 
-    <router-link to="/home"> <a-button icon="arrow-left" type="primary"></a-button></router-link> <br><br>
+    <router-link to="/home">
+      <a-button icon="arrow-left" type="primary"></a-button>
+    </router-link>
+    <br />
+    <br />
 
     <a-card hoverable :loading="isLoading">
-      <img
-        :src="event.image"
-        slot="cover"
-      />
+      <img :src="event.image" slot="cover" />
       <a-card-meta :title="event.title">
         <template slot="description">
-          <i>{{event.timestamp}}</i>  <br>
+          <i>{{event.timestamp}}</i>
+          <br />
           {{event.desc}}
         </template>
       </a-card-meta>
       <template class="ant-card-actions" slot="actions">
         <a-icon type="check-circle" />
         <a :href="getReminderLink" target="_blank">
-        <a-icon type="clock-circle" />
+          <a-icon type="clock-circle" />
         </a>
         <a-icon type="share-alt" @click="shareEvent()" />
       </template>
@@ -42,9 +44,20 @@ export default {
     this.id = this.$route.params.id;
     this.loadEvent(this.id);
   },
-  computed:{
-    getReminderLink(){
-      return 'http://www.google.com/calendar/render?action=TEMPLATE&text='+ this.event.title+'&dates='+ this.event.timestamp+'/'+this.event.timestamp+'&details='+this.event.desc+'&location='+this.event.venue
+  computed: {
+    getReminderLink() {
+      return (
+        "http://www.google.com/calendar/render?action=TEMPLATE&text=" +
+        this.event.title +
+        "&dates=" +
+        this.event.timestamp +
+        "/" +
+        this.event.timestamp +
+        "&details=" +
+        this.event.desc +
+        "&location=" +
+        this.event.venue
+      );
     }
   },
   methods: {
@@ -57,16 +70,21 @@ export default {
           this.isLoading = false;
         });
     },
-    shareEvent(){
+    shareEvent() {
       if (navigator.canShare) {
-        navigator.share({
-          title: this.event.title,
-          text: this.event.desc,
-        })
-        .then(() => console.log('Share was successful.'))
-        .catch((error) => console.log('Sharing failed', error));
+        navigator
+          .share({
+            title: this.event.title,
+            text: this.event.desc
+          })
+          .then({
+            // console.log('Share was successful.')
+          })
+          .catch({
+            // console.log('Sharing failed', error)
+          });
       } else {
-        console.log('Your system doesn\'t support sharing files.');
+        // console.log("Your system doesn't support sharing files.");
       }
     }
   }

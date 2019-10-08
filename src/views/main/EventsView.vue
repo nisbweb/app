@@ -3,7 +3,7 @@
     <h1 class="title">EVENTS</h1>
 
     <a-button-group>
-      <a-button type="dashed" style="font-size:1.5em;" size="large">Settings </a-button>
+      <a-button type="dashed" style="font-size:1.5em;" size="large">Settings</a-button>
       <a-button
         type="primary"
         style="font-size:1.5em;"
@@ -12,7 +12,8 @@
         icon="sliders"
       ></a-button>
     </a-button-group>
-    <br><br>
+    <br />
+    <br />
 
     <a-card hoverable v-for="event in events.slice().reverse()" :key="event.id">
       <router-link slot="cover" :to="{name: 'event', params: { id: event.id }}">
@@ -29,7 +30,7 @@
       </a-card-meta>
       <template class="ant-card-actions" slot="actions">
         <a-icon type="check-circle" />
-        <a-icon type="share-alt" @click="shareEvent(event)"/>
+        <a-icon type="share-alt" @click="shareEvent(event)" />
       </template>
     </a-card>
 
@@ -43,7 +44,6 @@
       <p>Some contents...</p>
       <p>Some contents...</p>
     </a-drawer>
-
   </div>
 </template>
 
@@ -56,7 +56,7 @@ export default {
     return {
       events: [],
       isLoading: false,
-      settingsVisible:false
+      settingsVisible: false
     };
   },
   methods: {
@@ -73,16 +73,21 @@ export default {
         this.isLoading = false;
       });
     },
-    shareEvent(event){
+    shareEvent(event) {
       if (navigator.canShare) {
-        navigator.share({
-          title: event.title,
-          text: event.desc,
-        })
-        .then(() => console.log('Share was successful.'))
-        .catch((error) => console.log('Sharing failed', error));
+        navigator
+          .share({
+            title: event.title,
+            text: event.desc
+          })
+          .then({
+            // console.log('Share was successful.')
+          })
+          .catch({
+            // console.log('Sharing failed', error)
+          });
       } else {
-        console.log('Your system doesn\'t support sharing files.');
+        // console.log('Your system doesn\'t support sharing files.');
       }
     }
   },

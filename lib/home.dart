@@ -1,4 +1,4 @@
-import 'package:connect/UI/loginPage.dart';
+import 'package:connect/views/loginPage.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {

@@ -1,5 +1,4 @@
-import 'package:connect/home.dart';
-import 'package:connect/services/auth.dart';
+import 'package:connect/splashScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData(
             brightness: Brightness.dark
         ),
-        home: Home()
+        home: SplashScreen()
     );
   }
 }

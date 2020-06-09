@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
 		body: LoginScreen(
 			primaryColor: Colors.blue,
 			backgroundColor: mode == Brightness.dark ? Color(0x2A2A2A) : Colors.white70,
-			backgroundImage: mode == Brightness.dark ? AssetImage('assets/images/full-bloom-dark.jpg') : AssetImage('assests/images/full-bloom-light.png'),
+			backgroundImage: mode == Brightness.dark ? AssetImage('assets/images/full-bloom-dark.jpg') : AssetImage('assets/images/full-bloom-light.png'),
 		),
 	);
   }

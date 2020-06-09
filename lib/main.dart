@@ -1,5 +1,4 @@
-import 'package:connect/home.dart';
-import 'package:connect/services/auth.dart';
+import 'package:connect/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +10,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+            primaryColor: Colors.white,
             brightness: Brightness.light
         ),
         darkTheme: ThemeData(
             brightness: Brightness.dark
         ),
-        home: Home()
+        initialRoute: '/',
+        routes: Router(),
     );
   }
 }

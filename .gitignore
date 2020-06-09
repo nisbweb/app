@@ -19,3 +19,12 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+build
+.dart_tool/
+.eslintrc.js
+.browserslistrc
+.flutter-plugins
+.flutter-plugins-dependencies
+.travis.yml
+.packages

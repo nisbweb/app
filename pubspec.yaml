@@ -28,6 +28,9 @@ dependencies:
   firebase_core: ^0.4.0+9
   google_sign_in: ^4.5.1
   firebase_storage: 3.0.8
+  liquid_pull_to_refresh: ^2.0.0
+  bubbled_navigation_bar: ^0.0.4
+  flutter_icons: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +52,10 @@ flutter:
   assets:
     - assets/images/full-bloom-dark.jpg
     - assets/images/full-bloom-light.png
+    - assets/images/nisb-dark.png
+    - assets/images/nisb-light.png
+    - assets/images/e404.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,4 +1,4 @@
-import 'package:connect/splashScreen.dart';
+import 'package:connect/UI/splashScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

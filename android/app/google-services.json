@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "482946304117",
+    "firebase_url": "https://nisb-connect.firebaseio.com",
+    "project_id": "nisb-connect",
+    "storage_bucket": "nisb-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482946304117:android:b0a7c41d1999f9b8b5d03c",
+        "android_client_info": {
+          "package_name": "com.nisb.connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482946304117-4be75qljmooeauik3htbv9ovdj28cppe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nisb.connect",
+            "certificate_hash": "5829c577bbc07b2f64c37b4b36219e5ae0a3832f"
+          }
+        },
+        {
+          "client_id": "482946304117-jsrg6iba6m23qb3iu0g5l03gnt08rkad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXIhkE57yQHCuq3Ma02Vpxz7QeRZwpUM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482946304117-jsrg6iba6m23qb3iu0g5l03gnt08rkad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

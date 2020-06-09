@@ -21,3 +21,4 @@ yarn-error.log*
 *.sw?
 
 build
+.dart_tool

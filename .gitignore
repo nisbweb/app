@@ -5,6 +5,7 @@ node_modules
 .dart_tool/
 build/
 
+
 # local env files
 .env.local
 .env.*.local

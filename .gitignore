@@ -21,7 +21,7 @@ yarn-error.log*
 *.sw?
 
 build
-.dart_tool
+.dart_tool/
 .eslintrc.js
 .browserslistrc
 .flutter-plugins

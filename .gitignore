@@ -23,3 +23,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies

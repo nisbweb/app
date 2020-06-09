@@ -164,6 +164,12 @@
       "languageVersion": "1.19"
     },
     {
+      "name": "liquid_pull_to_refresh",
+      "rootUri": "file:///Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/liquid_pull_to_refresh-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.6",
       "packageUri": "lib/",
@@ -272,7 +278,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-06-09T12:06:47.891841Z",
+  "generated": "2020-06-09T13:34:15.437161Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }

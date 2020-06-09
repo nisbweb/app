@@ -1,4 +1,5 @@
 import 'package:connect/UI/splashScreen.dart';
+import 'package:connect/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData(
             brightness: Brightness.dark
         ),
-        home: SplashScreen()
+        initialRoute: '/',
+        routes: Router(),
     );
   }
 }

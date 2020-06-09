@@ -22,3 +22,9 @@ yarn-error.log*
 
 build
 .dart_tool
+.eslintrc.js
+.browserslistrc
+.flutter-plugins
+.flutter-plugins-dependencies
+.travis.yml
+.packages

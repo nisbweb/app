@@ -1,3 +1,4 @@
+import 'package:connect/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget {
 									),
 								),
 								alignment: Alignment.center,
-								padding: EdgeInsets.only(top: 150.0, bottom: 100.0),
+								padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.2, bottom: MediaQuery.of(context).size.height * 0.2),
 								child: Column(
 									children: <Widget>[
 										Text(
@@ -232,13 +233,13 @@ class LoginScreen extends StatelessWidget {
 																	Icons.android,
 																	color: Color(0xff3b5998),
 																),
-																onPressed: () => {},
+																onPressed: () => handleSignIn(),
 															),
 														),
 													)
 												],
 											),
-											onPressed: () => {},
+											onPressed: () => handleSignIn(),
 										),
 									),
 								],

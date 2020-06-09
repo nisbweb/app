@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
 									Text(
 										'All tech on campus',
 										style: TextStyle(
-											color: mode == Brightness.light ? Color(0x2A2A2A) : Colors.white70
+											color: mode == Brightness.light ? Colors.black45 : Colors.white70
 										),
 									)
 								],

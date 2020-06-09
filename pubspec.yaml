@@ -50,6 +50,10 @@ flutter:
   assets:
     - assets/images/full-bloom-dark.jpg
     - assets/images/full-bloom-light.png
+    - assets/images/nisb-dark.png
+    - assets/images/nisb-light.png
+    - assets/images/e404.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

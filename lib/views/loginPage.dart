@@ -1,4 +1,6 @@
+import 'package:connect/home.dart';
 import 'package:connect/services/auth.dart';
+import 'package:connect/views/landing.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -7,6 +9,9 @@ class LoginScreen extends StatelessWidget {
 	final Color backgroundColor;
 	final AssetImage backgroundImage;
 
+	TextEditingController _controllerEmail = new TextEditingController();
+	TextEditingController _controllerPass = new TextEditingController();
+
 	LoginScreen({
 		Key key,
 		this.primaryColor, this.backgroundColor, this.backgroundImage
@@ -14,6 +19,8 @@ class LoginScreen extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
+		final ThemeData theme = Theme.of(context);
+		var mode = theme.brightness;
 		return SingleChildScrollView(
 			child: Container(
 				height: MediaQuery.of(context).size.height,
@@ -96,6 +103,8 @@ class LoginScreen extends StatelessWidget {
 												hintStyle: TextStyle(color: Colors.grey),
 											),
 											keyboardType: TextInputType.emailAddress,
+											controller: _controllerEmail,
+											keyboardAppearance: mode,
 										),
 									)
 								],
@@ -142,6 +151,8 @@ class LoginScreen extends StatelessWidget {
 												hintStyle: TextStyle(color: Colors.grey),
 											),
 											obscureText: true,
+											controller: _controllerPass,
+											keyboardAppearance: mode,
 										),
 									)
 								],
@@ -190,7 +201,12 @@ class LoginScreen extends StatelessWidget {
 													)
 												],
 											),
-											onPressed: () => {},
+											onPressed: () {
+												login();
+												Navigator.of(context).pushReplacement(
+													new MaterialPageRoute(builder: (_) => Landing())
+												);
+											},
 										),
 									),
 								],
@@ -239,7 +255,12 @@ class LoginScreen extends StatelessWidget {
 													)
 												],
 											),
-											onPressed: () => handleSignIn(),
+											onPressed: () {
+												handleSignIn();
+												Navigator.of(context).pushReplacement(
+													new MaterialPageRoute(builder: (_) => Home())
+												);
+											},
 										),
 									),
 								],
@@ -275,6 +296,10 @@ class LoginScreen extends StatelessWidget {
 				),
 			),
 		);
+	}
+
+	void login() {
+		print('logging in');
 	}
 }
 

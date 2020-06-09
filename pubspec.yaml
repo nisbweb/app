@@ -29,6 +29,8 @@ dependencies:
   google_sign_in: ^4.5.1
   firebase_storage: 3.0.8
   liquid_pull_to_refresh: ^2.0.0
+  bubbled_navigation_bar: ^0.0.4
+  flutter_icons: ^1.1.0
 
 dev_dependencies:
   flutter_test:

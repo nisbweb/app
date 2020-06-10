@@ -25,12 +25,14 @@ dependencies:
   cupertino_icons: ^0.1.2
   firebase: ^7.3.0
   firebase_auth: ^0.16.1
-  firebase_core: ^0.4.0+9
   google_sign_in: ^4.5.1
   firebase_storage: 3.0.8
   liquid_pull_to_refresh: ^2.0.0
   bubbled_navigation_bar: ^0.0.4
   flutter_icons: ^1.1.0
+  cloud_firestore: ^0.13.6
+  firebase_analytics: ^5.0.15
+  firebase_messaging: ^6.0.16
 
 dev_dependencies:
   flutter_test:

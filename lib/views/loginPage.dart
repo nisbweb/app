@@ -2,6 +2,7 @@ import 'package:connect/home.dart';
 import 'package:connect/services/auth.dart';
 import 'package:connect/views/landing.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -182,7 +183,7 @@ class LoginScreen extends StatelessWidget {
 														child: Container(),
 													),
 													new Transform.translate(
-														offset: Offset(15.0, 0.0),
+														offset: Offset(10.0, 0.0),
 														child: new Container(
 															padding: const EdgeInsets.all(5.0),
 															child: FlatButton(
@@ -192,7 +193,7 @@ class LoginScreen extends StatelessWidget {
 																splashColor: Colors.white,
 																color: Colors.white,
 																child: Icon(
-																	Icons.arrow_forward,
+																	FlutterIcons.login_ant,
 																	color: this.primaryColor,
 																),
 																onPressed: () => {},
@@ -246,7 +247,7 @@ class LoginScreen extends StatelessWidget {
 																splashColor: Colors.white,
 																color: Colors.white,
 																child: Icon(
-																	Icons.android,
+																	FlutterIcons.google_ant,
 																	color: Color(0xff3b5998),
 																),
 																onPressed: () => handleSignIn(),

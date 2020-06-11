@@ -24,9 +24,7 @@ void initFCM() async {
 			provisional: true,
 		),
 	);
-	FCM.onIosSettingsRegistered.listen((IosNotificationSettings settings) {
-		print(settings);
-	});
+	FCM.onIosSettingsRegistered.listen((IosNotificationSettings settings) {});
 	FCM.getToken().then((token) => Noti = token);
 	FCM.subscribeToTopic('hello');
 }

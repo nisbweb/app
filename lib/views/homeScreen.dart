@@ -1,3 +1,4 @@
+import 'package:connect/services/firebaseCloudMessaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -124,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
 				children: <Widget>[
 					Center(
 						child: Text(
-							'1',
+							Noti,
 							style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
 						),
 					),

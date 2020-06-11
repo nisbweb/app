@@ -1,13 +1,21 @@
 import 'package:connect/router.dart';
+//import 'package:connect/services/fireStore.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:connect/services/firebaseCloudMessaging.dart';
+
+final FirebaseAnalytics analytics = FirebaseAnalytics();
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+//      initFire();
+      initFCM();
       Firestore.instance.collection('test').document().setData({
           'test': 'testing data again'
       });

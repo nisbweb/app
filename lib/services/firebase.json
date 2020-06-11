@@ -1,0 +1,22 @@
+{
+	"firebase values" : {
+		"android" : {
+			"apiKey": "AIzaSyBXIhkE57yQHCuq3Ma02Vpxz7QeRZwpUM4",
+			"authDomain": "https://accounts.google.com/o/oauth2/auth",
+			"databaseURL": "https://nie-college-app.firebaseio.com",
+			"projectId": "nisb-connect",
+			"appId": "1:482946304117:android:b0a7c41d1999f9b8b5d03c",
+			"storageBucket": "nisb-connect.appspot.com",
+			"gcmSenderID": "482946304117"
+		},
+		"iOS" : {
+			"apiKey": "YourApiKey",
+			"authDomain": "https://accounts.google.com/o/oauth2/auth",
+			"databaseURL": "https://nie-college-app.firebaseio.com",
+			"projectId": "nisb-connect",
+			"appId": "1:482946304117:ios:662484322830d5ffb5d03c",
+			"storageBucket": "YourStorageBucket",
+			"gcmSenderID": "482946304117"
+		}
+	}
+}

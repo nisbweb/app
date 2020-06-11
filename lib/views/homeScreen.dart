@@ -13,10 +13,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 	String title;
 
+
+
 	double xOffset;
 	double yOffset;
 	double scaleFactor;
 	bool isDrawer;
+	bool isSearch;
+	double widthAn;
+	bool isProfile;
 
 	@override
   void initState() {
@@ -26,6 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
     yOffset = 0;
     scaleFactor = 1;
     isDrawer = false;
+	isSearch = false;
+	widthAn = 0;
+	isProfile = false;
   }
 
   var Items = <BubbledNavigationBarItem>[
@@ -68,13 +76,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   	final ThemeData theme = Theme.of(context);
   	var mode = theme.brightness;
-  	String title = 'Home';
     return AnimatedContainer(
 		transform: Matrix4.translationValues(xOffset, yOffset, 0)..scale(scaleFactor),
 		height: MediaQuery.of(context).size.height,
-		duration: Duration(milliseconds: 250),
+		duration: Duration(milliseconds: 300),
 		child: Scaffold(
-			appBar: AppBar(
+			appBar: isProfile ? null : AppBar(
 				shape: RoundedRectangleBorder(
 					borderRadius: BorderRadius.circular(15),
 				),
@@ -92,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
 						}
 						else {
 							setState(() {
-								xOffset = 230;
-								yOffset = 150;
+								xOffset = MediaQuery.of(context).size.width * 0.75;
+								yOffset = MediaQuery.of(context).size.height * 0.2;
 								scaleFactor = 0.6;
 								isDrawer = true;
 							});
@@ -103,55 +110,126 @@ class _HomeScreenState extends State<HomeScreen> {
 				actions: <Widget>[
 					Padding(
 						padding: EdgeInsets.only(right: 10),
-						child: Column(
-							crossAxisAlignment: CrossAxisAlignment.end,
+						child: isSearch ? AnimatedContainer(
+							duration: Duration(milliseconds: 250),
+							width: widthAn,
+							child: TextField(
+								decoration: InputDecoration(
+									hintText: 'Search ..',
+									prefixIcon: Icon(FlutterIcons.search1_ant)
+								)
+							),
+						)
+							: Row(
 							children: <Widget>[
-								Text(
-									title,
-									style: TextStyle(
-										fontSize: 25,
-										fontWeight: FontWeight.w800
-									),
+								Column(
+									crossAxisAlignment: CrossAxisAlignment.end,
+									children: <Widget>[
+										Text(
+											title,
+											style: TextStyle(
+												fontSize: 25,
+												fontWeight: FontWeight.w800
+											),
+										),
+										Text(
+											'Last updated at ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}'
+										)
+									],
 								),
-								Text(
-									'Last updated at ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}'
+								IconButton(
+									icon: Icon(FlutterIcons.search1_ant),
+									onPressed: () {
+										setState(() {
+											isSearch = true;
+										});
+										Future.delayed(Duration(milliseconds: 50), () {
+											setState(() {
+											  widthAn = MediaQuery.of(context).size.width * 0.75;
+											});
+										});
+									},
 								)
 							],
 						),
 					)
 				],
 			),
-			body: PageView(
+			body: Stack(
+				fit: StackFit.expand,
 				children: <Widget>[
-					Center(
-						child: Text(
-							Noti,
-							style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
-						),
+					PageView(
+						children: <Widget>[
+							Center(
+								child: Text(
+									'1',
+									style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
+								),
+							),
+							Center(
+								child: Text(
+									'2',
+									style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
+								),
+							),
+							Center(
+								child: Text(
+									'3',
+									style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
+								),
+							),
+							Center(
+								child: Text(
+									'4',
+									style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
+								),
+							)
+						],
+						controller: _pageController,
+						onPageChanged: (index) {
+							if(index == 0) {
+								setState(() {
+									title = 'Home';
+									isProfile = false;
+								});
+							}
+							else if(index == 1) {
+								setState(() {
+									title = 'Events';
+									isProfile = false;
+								});
+							}
+							else if(index == 2) {
+								setState(() {
+									title = 'Spaces';
+									isProfile = false;
+								});
+							}
+							else if(index == 3) {
+								setState(() {
+									isProfile = true;
+								});
+							}
+							print(title);
+							_menuPositionController.animateToPosition(index);
+						},
 					),
-					Center(
-						child: Text(
-							'2',
-							style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
+					isSearch ? GestureDetector(
+						child: Container(
+							color: Colors.transparent,
 						),
-					),
-					Center(
-						child: Text(
-							'3',
-							style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
-						),
-					),
-					Center(
-						child: Text(
-							'4',
-							style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
-						),
-					)
+						onTap: () {
+							setState(() {
+								widthAn = 0;
+							});
+							Future.delayed(Duration(milliseconds: 250), () {
+								setState(() {
+									isSearch = false;
+								});
+							});
+						},
+					) : Container()
 				],
-				controller: _pageController,
-				onPageChanged: (index) {
-					_menuPositionController.animateToPosition(index);
-				},
 			),
 			bottomNavigationBar: BubbledNavigationBar(
 				items: Items,

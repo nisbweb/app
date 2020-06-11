@@ -1,4 +1,3 @@
-import 'package:connect/services/firebaseCloudMessaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -85,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
 				shape: RoundedRectangleBorder(
 					borderRadius: BorderRadius.circular(15),
 				),
-				elevation: 0,
+				elevation: 10,
 				leading: IconButton(
 					icon: isDrawer ? Icon(FlutterIcons.backburger_mco) : Icon(FlutterIcons.align_left_fea),
 					onPressed: () {
@@ -210,7 +209,6 @@ class _HomeScreenState extends State<HomeScreen> {
 									isProfile = true;
 								});
 							}
-							print(title);
 							_menuPositionController.animateToPosition(index);
 						},
 					),

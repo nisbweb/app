@@ -1,3 +1,4 @@
+import 'package:connect/views/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
@@ -11,51 +12,56 @@ class _DrawerScreenState extends State<DrawerScreen> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
+      child: Stack(
+        fit: StackFit.expand,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/avataaars.png'),
-                radius: 35,
-                backgroundColor: Colors.transparent,
-              ),
-              SizedBox(width: 10,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    'Iresh Sharma',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white
-                    ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/avataaars.png'),
+                    radius: 35,
+                    backgroundColor: Colors.transparent,
                   ),
-                  Text(
-                    'iresharma@outlook.com',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w100,
-                      color: Colors.white
-                    ),
+                  SizedBox(width: 10,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Iresh Sharma',
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white
+                        ),
+                      ),
+                      Text(
+                        'iresharma@outlook.com',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w100,
+                            color: Colors.white
+                        ),
+                      )
+                    ],
                   )
                 ],
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
+              FlatButton.icon(
+                  onPressed: () => print('hi'),
+                  icon: Icon(FlutterIcons.settings_applications_mdi),
+                  label: Text('Settings')
               )
             ],
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
-          FlatButton.icon(
-              onPressed: null,
-              icon: Icon(FlutterIcons.settings_applications_mdi),
-              label: Text('Settings')
-          )
         ],
-      ),
+      )
     );
   }
 }

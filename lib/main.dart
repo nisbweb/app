@@ -16,9 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 //      initFire();
       initFCM();
-      Firestore.instance.collection('test').document().setData({
-          'test': 'testing data again'
-      });
+
+//      Working code .
+//      Firestore.instance.collection('test').document().setData({
+//          'test': 'testing data again'
+//      });
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

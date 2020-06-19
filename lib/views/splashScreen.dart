@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:connect/components/colourLoader.dart';
-import 'package:connect/home.dart';
+import 'package:connect/services/globalVariable.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
 		Duration(seconds: 5),
-		() => Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (_) => Home()))
+		() => Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (_) => landing))
 	);
   }
 

@@ -1,3 +1,4 @@
+import 'package:connect/views/connectPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -159,12 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
 				children: <Widget>[
 					PageView(
 						children: <Widget>[
-							Center(
-								child: Text(
-									'1',
-									style: CupertinoTheme.of(context).textTheme.navLargeTitleTextStyle,
-								),
-							),
+							ConnectPage(),
 							Center(
 								child: Text(
 									'2',

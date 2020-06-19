@@ -146,6 +146,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "flutter_secure_storage",
+      "rootUri": "file:///Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.3.3",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/iresharma/dev/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -320,7 +326,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-06-10T21:08:45.274256Z",
+  "generated": "2020-06-19T20:24:20.011285Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }

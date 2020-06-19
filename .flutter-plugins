@@ -7,5 +7,6 @@ firebase_core=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/fi
 firebase_core_web=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.1.1+2/
 firebase_messaging=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-6.0.16/
 firebase_storage=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-3.0.8/
+flutter_secure_storage=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.3.3/
 google_sign_in=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-4.5.1/
 google_sign_in_web=/Users/iresharma/dev/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.9.1+1/

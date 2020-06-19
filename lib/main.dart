@@ -1,6 +1,7 @@
-import 'package:connect/router.dart';
+import 'package:connect/services/router.dart';
 //import 'package:connect/services/fireStore.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:connect/services/secureStorage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -12,15 +13,13 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
 
+    void Startup(context) async {
+        await loadData(context);
+    }
+
   @override
   Widget build(BuildContext context) {
-//      initFire();
-      initFCM();
-
-//      Working code .
-//      Firestore.instance.collection('test').document().setData({
-//          'test': 'testing data again'
-//      });
+      Startup(context);
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

@@ -1,5 +1,6 @@
 import 'package:connect/views/drawerScreen.dart';
 import 'package:connect/views/homeScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Landing extends StatefulWidget {
@@ -15,7 +16,7 @@ class _LandingState extends State<Landing> {
 		body: Stack(
 			children: <Widget>[
 				DrawerScreen(),
-				HomeScreen()
+				HomeScreen(),
 			],
 		),
 	);

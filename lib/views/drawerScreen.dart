@@ -1,4 +1,5 @@
 import 'package:connect/views/homeScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
@@ -10,8 +11,9 @@ class DrawerScreen extends StatefulWidget {
 class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+      color: Colors.teal,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -53,6 +55,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ],
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
+              FlatButton.icon(
+                  onPressed: () => print('hi'),
+                  icon: Icon(CupertinoIcons.bookmark),
+                  label: Text('Bookmarks')
+              ),
               FlatButton.icon(
                   onPressed: () => print('hi'),
                   icon: Icon(FlutterIcons.settings_applications_mdi),
